@@ -1,0 +1,53 @@
+<aside class="rightside">
+	<% if((is_post() && page.aside != 'false') ||
+	(!is_post() && page.aside) ||
+	(is_archive() && theme.archive_aside) ||
+	(is_category() && theme.archive_aside) ||
+	(is_tag() && theme.tag_aside)
+	){ %>
+		<div class="rightside-button<%= page.toc ? '' : ' not-toc-button' %>" id="js-aside">
+			<span>
+				<img no-lazy src="<%- theme.icon.aside %>" class="rightside-button-icon" alt="Icon">
+			</span>
+		</div>
+		<script>
+			$("#js-aside").click(function () {
+				onShowAsideButton();
+			});
+		</script>
+	<% } %>
+	<div class="rightside-button" id="js-toggle_theme">
+		<span>
+			<img no-lazy src="<%- theme.icon.toggle_theme %>" class="rightside-button-icon" alt="Icon">
+		</span>
+	</div>
+
+	<%- js('js/plugins/goto_position.js'); %>
+	
+	<div class="rightside-button" id="js-go_top">
+		<span>
+			<img no-lazy src="<%- theme.icon.go_top %>" class="rightside-button-icon" alt="Icon">
+		</span>
+	</div>
+	<div class="rightside-button" id="js-go_bottom">
+		<span>
+			<img no-lazy src="<%- theme.icon.go_bottom %>" class="rightside-button-icon" alt="Icon">
+		</span>
+	</div>
+
+	<script>
+		setToggleThemeButtonListener();
+	</script>
+	<script>
+		$('#js-go_top')
+		.gotoPosition( {
+			speed: 300,
+			target: 'top',
+		} );
+		$('#js-go_bottom')
+		.gotoPosition( {
+			speed: 300,
+			target: 'bottom',
+		} );
+	</script>
+</aside>

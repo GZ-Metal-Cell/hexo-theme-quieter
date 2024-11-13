@@ -1,0 +1,232 @@
+# 网站标题
+title: 主页
+# 网站标题后缀
+suffix: Hexo-Theme-Quiter
+# 作者名称(会显示在首页文章下面)
+author: Zi-Zi
+# 网站关键字
+keyword: Hexo theme, blog
+# 网站描述
+web_description: 🍓 A simple and fully functional Hexo theme, improved based on Hexo theme quiet.
+# 网站语言
+lang: zh-CN
+# 网站建站时间
+since_year: 2024
+# 导航名称
+menus_title:
+    home: 主页
+    categories: 类别
+    tags: 标签
+    archives: 归档
+    galleries: 相册
+    links: 链接
+    about: 关于
+
+# 导航 （不建议修改）
+menus_link:
+    home: /
+    categories: /categories
+    tags: /tags
+    archives: /archives
+    galleries: /galleries
+    links: /links
+    about: /about
+
+about: 
+    author: Zi-Zi
+    portrait: 'https://gz-metal-cell.github.io/about/portrait.png'
+    description: '不以物喜，不以己悲。'
+
+# logo
+logo: /images/headers_icon/logo.webp
+# Icon
+icon:
+    favicon: /images/icon/favicon.ico # 网页标签上那个小图标 一定要用本地存储
+    locked: /images/icon/locked.png
+    normal: /images/icon/normal.png
+    go_top: /images/icon/go_top.png
+    go_bottom: /images/icon/go_bottom.png
+    search: /images/icon/search.png
+    aside: /images/icon/aside.png
+    toggle_theme: /images/icon/toggle_theme.png
+    copy: /images/icon/copy.png
+    close_code_block: /images/icon/close_code_block.png
+    sticky: /images/icon/sticky.png
+
+# 每个页面的展示的图标和一句话
+headers:
+    home:
+        {
+            message: "居然被你找到了这里！",
+            icon: "/images/headers_icon/logo_white.webp",
+        }
+    categories:
+        {
+            message: "好像也没分几类",
+            icon: "/images/headers_icon/categories.svg",
+        }
+    tags:
+        {
+            message: "这里是一些展示的标签",
+            icon: "/images/headers_icon/tags.svg",
+        }
+    archives:
+        {
+            # 这里会替换掉两个变量{ year 年，number 总数 } 当然也可以不写这两个变量
+            message: "居然一共才写了 number 篇文章！",
+            message_month: "在 year 年 month 月里写了 number 篇文章！",
+            message_year: "在 year 年里写了 number 篇文章！",
+            icon: "/images/headers_icon/archives.svg",
+        }
+    galleries:
+        {
+            message: "有趣的相册~（施工中）",
+            icon: "/images/headers_icon/galleries.svg",
+        }
+    links:
+        {
+            message: "一些神奇小网站~",
+            icon: "/images/headers_icon/links.svg",
+        }
+    about:
+        {
+            message: "关于我",
+            icon: "/images/headers_icon/about.svg",
+        }
+
+# 网页访问统计
+web_analytics:
+    enable: false  # 需要改为 true
+    busuanzi: false  # 不蒜子访问量统计
+    baidu:  #（替换）百度统计的 Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串
+
+# Giscus
+# 配置方法详见 https://giscus.app/
+giscus:
+    enable: false
+    repo: 
+    repo_id: 
+    category: Announcements
+    category_id: 
+    mapping: title
+    strict: 1
+    reactions-enabled: 1
+    emit_metadata: 0
+    input_position: bottom
+    # loading: lazy
+
+# gitalk 评论
+gitalk:
+    enable: false
+    clientID: # （需要替换）GitHub Application Client ID.
+    clientSecret: #（需要替换）GitHub Application Client Secret.
+    repo: #（需要替换）GitHub repository.
+    owner: #（需要替换）GitHub repository 所有者，可以是个人或者组织。
+    admin: #（需要替换）GitHub repository 的所有者和合作者 (对这个 repository 有写权限的用户)。
+
+# 底部显示的图标（github 或者其他）
+bottom_icon:
+    # 可以多个
+    - {
+          # 描述名称
+          name: "weibo",
+          # 图标
+          icon: "/images/bottom_icon/Weibo.webp",
+          # 跳转链接
+          link: "",
+      }
+    - {
+          # 描述名称
+          name: "tieba",
+          # 图标
+          icon: "/images/bottom_icon/Tieba.webp",
+          # 跳转链接
+          link: "",
+      }
+    - {
+          # 描述名称
+          name: "bilibili",
+          # 图标
+          icon: "/images/bottom_icon/Bilibili.webp",
+          # 跳转链接
+          link: "",
+      }
+    - {
+          # 描述名称
+          name: "github",
+          # 图标
+          icon: "/images/bottom_icon/github.webp",
+          # 跳转链接
+          link: "",
+      }
+
+# 归档页是否开启侧边栏
+archive_aside: true
+# 标签页是否开启侧边栏
+tag_aside: true
+# 标签页是否开启目录
+archive_toc: true
+# 标签页是否开启目录
+tag_toc: true
+
+# 翻页显示上下文页数，必须是一个自然数
+pagination: 3
+
+# 搜索（如果 hexo-generator-search 启用的话）
+search: true
+
+# 懒加载（如果 hexo-lazyload-image 启用的话）
+lazyload: true
+
+# 字数统计（前端方法，不需要 hexo-wordcount）
+wordcount: true
+
+# 自动将多个空格替换成对应的 &nbsp;
+replaceSpacesWithNbsp: true
+
+# fancybox
+fancybox:
+    enable: true
+    css: css/plugins/fancybox.css
+    js: js/plugins/fancybox.umd.js
+
+# mathjax 和 katex 用于显示数学公式，二者取其一
+mathjax:
+    enable: false
+    js: https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.3/tex-mml-chtml.js
+
+katex:
+    enable: true
+    css: /js/plugins/katex/katex.min.css # https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+    js: /js/plugins/katex/katex.min.js # https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
+    auto_render: /js/plugins/katex/auto-render.min.js # https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
+    copy_tex:
+        enable: true
+        css: /css/plugins/copy-tex.css # https://cdn.bootcdn.net/ajax/libs/KaTeX/0.12.0/contrib/copy-tex.css
+        js: /js/plugins/copy-tex.js # https://cdn.bootcdn.net/ajax/libs/KaTeX/0.12.0/contrib/copy-tex.js
+
+# mermaid chart
+mermaid: ## mermaid url https://github.com/knsv/mermaid
+  enable: true  # default true
+  js: /js/mermaid.min.js 
+  options: # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+    #startOnload: true  // default true
+
+# 默认的 cover (默认缩略图) 在没有填写（这里可以替换（可以是 api 也可以是固定的图））
+default_cover: "https://tuapi.eees.cc/api.php?type=302&category=fengjing"
+
+# 所有网页中插入的 html 语句
+inject: 
+  head:
+  bottom:
+
+# 如果网站需要填写 ICP 备案信息，可在这里填写
+icp:
+    enable: false
+    icon: 
+    link: 
+    text: 
+
+random_covers:
+    - "https://gz-metal-cell.github.io/images/random_covers/22.webp"
+    - "https://gz-metal-cell.github.io/images/random_covers/24.webp"

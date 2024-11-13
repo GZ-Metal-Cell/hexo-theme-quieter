@@ -1,0 +1,86 @@
+<% if(is_archive()){ %>
+    <%- partial('_partial/sticky-header', {name:'archives', bg: true}); %>
+<% }else if(is_category()){ %>
+    <%- partial('_partial/sticky-header', {name:'categories', bg: true}); %>
+<% } %>
+
+<div class="main-wrapper<%= theme.archive_aside != 'false' ? '' : ' close-aside' %>">
+    <main class="archive">
+        <% if(is_archive()){ %>
+            <% page.title = theme.menus_title.archives %>
+            <%
+                var data = {};
+                var PageNum = 0;
+                var PageYear = 0;
+                site.posts.sort('date').reverse().forEach(function(post){
+                    var year = post.date.year();
+                    var month = post.date.month() + 1;
+                    var key = year + "/" + month;
+                    if ((page.month !== undefined && year == page.year && month == page.month) ||
+                        (page.year !== undefined && page.month === undefined && year == page.year) ||
+                        (page.month === undefined && page.year === undefined)){
+                        
+                        if(data[key] === undefined){
+                            data[key] = [];
+                        }
+                        data[key].push(post);
+                        PageNum += 1;
+                    }
+                });
+            %>
+            <% if(page.month !== undefined){ %>
+                <%- partial('_partial/main-header', {name:'archives', message:theme.headers.archives.message_month.replace('year', page.year).replace('month', page.month).replace('number', PageNum), icon:theme.headers.archives.icon}); %>
+            <% } else if(page.year !== undefined){ %>
+                <%- partial('_partial/main-header', {name:'archives', message:theme.headers.archives.message_year.replace('year', page.year).replace('number', PageNum), icon:theme.headers.archives.icon}); %>
+            <% } else { %>
+                <%- partial('_partial/main-header', {name:'archives', message:theme.headers.archives.message.replace('number', PageNum), icon:theme.headers.archives.icon}); %>
+            <% } %>
+        <% }else if(is_category()){ %>
+            <% page.title = theme.menus_title.categories + "：" + page.category %>
+            <%
+                var data = {};
+                site.posts.sort('date').reverse().forEach(function(post){
+                    const categorys = post.categories;
+                    if(categorys.length < 1) return;
+                    categorys.data.map((cat)=>{
+                        if(page.category === cat.name){
+                            var year = post.date.year();
+                            var month = post.date.month() + 1;
+                            var key = year + "/" + month;
+                            if(data[key] === undefined){
+                                data[key] = [];
+                            }
+                            data[key].push(post);
+                        }
+                    })
+                });
+            %>
+            <%- partial('_partial/main-header', {name:'categories', message: theme.menus_title.categories + "：" + page.category, icon:theme.headers.categories.icon}); %>
+        <% } %>
+        <div class="article-container archive-content">
+            <article class="archive-content-info">
+                <% if(theme.search && is_archive() && page.month === undefined && page.year === undefined) { %>
+                    <div class="local-search">
+                        <h1 id="站内搜索"><a href="#站内搜索" class="headerlink" title="站内搜索"></a>站内搜索</h1>
+                        <div class="input-container">
+                            <img no-lazy class="search-icon" src="<%- theme.icon.search %>" alt="search-icon" />
+                            <input type="search" placeholder="输入关键字以搜索……" id="local-search-input" class="input" />
+                        </div>
+                        <p id="local-search-result" class="result"></p>
+                        <div id="local-search-content" class="content"></div>
+                    </div>
+                    <script>
+                        $.getScript('/js/plugins/search.js', function () {
+                            searchFunc('/search.xml', 'local-search-input', 'local-search-content', 'local-search-result')
+                        })
+                    </script>                
+                <% } %>
+                <%- partial('widgets/grouping', {data: data, keys: Object.keys(data)}); %>
+            </article>
+            <%- partial('widgets/bottom'); %>
+        </div>
+    </main>
+    <% if(theme.archive_aside) { %>
+        <%- partial('widgets/main-aside'); %>
+    <% } %>
+</div>

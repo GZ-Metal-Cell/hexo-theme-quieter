@@ -1,0 +1,33 @@
+<%- partial('_partial/sticky-header', {name:'tags', bg: true}); %>
+
+<div class="main-wrapper<%= page.aside != 'false' ? '' : ' close-aside' %>">
+    <main class="tags">
+        <%- partial('_partial/main-header',{name:'tags', message: theme.headers.tags.message, icon: theme.headers.tags.icon}); %>
+        <div class="article-container tags-content">
+            <article class="tags-content-info">
+                <h2> 共有 <%- site.tags.length  %> 个标签</h2>
+                <div class="tags">
+                    <% let seriesSet = new Set(); %>
+                    <% site.posts.forEach(function(post) { %>
+                        <% if (post.series) { %>
+                            <% seriesSet.add(post.series); %>
+                        <% } %>
+                    <% }); %>
+                    <% site.tags.forEach(function(tag) {  %>
+                        <% if (seriesSet.has(tag.name)) { %>
+                            <a href="<%- url_for(tag.path) %>" class="tag series">
+                        <% } else { %>
+                            <a href="<%- url_for(tag.path) %>" class="tag">
+                        <% } %>
+                            <span># <%= tag.name %> <i><%= tag.length %></i> </span>
+                        </a>
+                    <% }); %>
+                </div>
+            </article>
+            <%- partial('widgets/bottom'); %>
+        </div>
+    </main>
+    <% if(page.aside) { %>
+        <%- partial('widgets/main-aside'); %>
+    <% } %>
+</div>

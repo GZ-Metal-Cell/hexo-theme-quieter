@@ -1,0 +1,16 @@
+<%- partial('_partial/sticky-header', {name: 'links', bg: true}); %>
+
+<div class="main-wrapper<%= page.aside != 'false' ? '' : ' close-aside' %>">
+    <main class="links">
+        <%- partial('_partial/main-header',{name:'links', message:theme.headers.links.message,icon:theme.headers.links.icon}); %>
+        <div class="article-container links-content">
+            <article class="links-content-info">
+                <%- page.content %>
+            </article>
+            <%- partial('widgets/bottom'); %>
+        </div>
+    </main>
+    <% if(page.aside != 'false') { %>
+        <%- partial('widgets/main-aside'); %>
+    <% } %>
+</div>

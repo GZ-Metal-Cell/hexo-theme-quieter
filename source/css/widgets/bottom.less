@@ -1,0 +1,51 @@
+.post-bottom {
+    display: flex;
+    flex-direction: column;
+
+    .post-paging {
+        display: flex;
+        transition: all 0.5s ease-in-out;
+        position: relative;
+        margin: 20px 0 10px;
+        
+        &-last,
+        &-next {
+            display: flex;
+            flex-grow: 1;
+            flex-basis: 0;
+
+            a{
+                color: var(--text-secondary);
+                font-size: 16px;
+                text-decoration: none;
+                padding: 10px;
+                width: 100%;
+                border: 2px solid var(--border);
+                background: var(--background-secondary);
+                border-radius: 5px;
+                line-height: 24px;
+
+                &:hover {
+                    color: var(--text-link);
+                    background: var(--background-tertiary);
+                }
+            }
+        }
+
+        &-last {
+            margin-right: 10px;
+        }
+
+        &-next {
+            margin-left: 10px;
+
+            a {
+                text-align: right;
+            }
+        }
+    }
+
+    .comments {
+        margin: 20px auto;
+    }
+}

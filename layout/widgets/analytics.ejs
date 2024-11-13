@@ -1,0 +1,19 @@
+<!-- Analytics -->
+<% if(theme.web_analytics.enable) { %>
+    <% if(theme.web_analytics.busuanzi) { %>
+        <!-- Busuanzi Analytics -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <% } %>
+    <% if(theme.web_analytics.baidu) { %>
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?<%= theme.web_analytics.baidu %>";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    <% } %>
+<% } %>

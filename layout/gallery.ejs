@@ -1,0 +1,26 @@
+<%- partial('_partial/sticky-header', {name:'galleries', bg: true}); %>
+
+<div class="main-wrapper<%= page.aside ? '' : ' close-aside' %>">
+    <main class="gallery">
+        <%- partial('_partial/main-header',{name:'galleries', message: page.description ? page.description : theme.headers.galleries.message, icon: theme.headers.galleries.icon}); %>
+        <div class="article-container gallery-content">
+            <article>
+                <%- page.content %>
+                <div class="description-container"><span></span></div>
+                <% if(theme.fancybox.enable && page.fancybox != false) { %>
+                    <%- css(theme.fancybox.css); %>
+                    <%- js(theme.fancybox.js); %>
+                    <%- js('js/plugins/fancybox.js'); %>
+                <% } %>
+                <%- js('js/plugins/masonry.pkgd.js'); %>
+                <%- js('js/plugins/imagesloaded.pkgd.js'); %>
+                <script>var lazyLoad = <%= theme.lazyload %>;</script>
+                <%- js('js/widgets/gallery.js'); %>
+            </article>
+            <%- partial('widgets/bottom'); %>
+        </div>
+    </main>
+    <% if(page.aside) { %>
+        <%- partial('widgets/main-aside'); %>
+    <% } %>
+</div>

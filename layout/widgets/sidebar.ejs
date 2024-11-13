@@ -1,0 +1,53 @@
+<div class="sidebar">
+    <div class="topo">
+        <p><%- theme.suffix %></p>
+    </div>
+    <ul>
+        <% for(const menu in theme.menus_link) { %>
+        <li>
+            <a href="<%= theme.menus_link[menu] %>">
+                <%= theme.menus_title[menu] %>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+    <div class="sidebar-footer">
+        <% theme.bottom_icon.forEach(item =>{%>
+        <a href="<%= item.link %>">
+            <img no-lazy src="<%= item.icon %>" alt="Quiet">
+        </a>
+        <% }) %>
+    </div>
+</div>
+<div class='shelter'>
+    <script>
+        $(function() {
+            $('.nav-right-close > svg').click(function() {
+                $('.sidebar').animate({
+                    right: "0"
+                }, 500);
+                $('.shelter').fadeIn("slow");
+            
+                var element = $('.topo');
+                element.addClass('custom-style');
+            
+                var links = null;
+                if ("<%- page.top_img %>") {
+                    links = "<%- page.top_img %>".split(',');
+                } else {
+                    links = "<%- theme.random_covers %>".split(',');
+                }
+            
+                var randomLink = links[Math.floor(Math.random() * links.length)];
+                element.css('background-image', "url('" + randomLink + "')");
+            });
+          
+            $('.shelter').click(function(e) {
+                $('.sidebar').animate({
+                    right: "-100%"
+                }, 500);
+                $('.shelter').fadeOut("slow");
+            });
+        });      
+    </script>
+</div>

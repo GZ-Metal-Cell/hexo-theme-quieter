@@ -1,0 +1,36 @@
+<% page.title = theme.menus_title.tags + "：" + page.tag %>
+<%- partial('_partial/sticky-header', {name:'tags', bg: true}); %>
+
+<div class="main-wrapper<%= theme.tag_aside ? '' : ' close-aside' %>">
+    <main class="tag">
+        <%- partial('_partial/main-header',{name:'tags', message: theme.menus_title.tags + "：" + page.tag, icon:theme.headers.tags.icon}); %>
+        <div class="article-container tag-content">
+            <article class="tag-content-info">
+                <%
+                    var data = {};
+                    site.posts.sort('date').reverse().forEach(function(post){
+                        const tags = post.tags;
+                        if(tags.length < 1) return;
+                        tags.data.map((t)=>{
+                            if(page.tag === t.name){
+                                var year = post.date.year();
+                                var month = post.date.month() + 1;
+                                
+                                var key = year + "/" + month;
+                                if(data[key] === undefined){
+                                    data[key] = [];
+                                }
+                                data[key].push(post);
+                            }
+                        })
+                    });
+                %>
+                <%- partial('widgets/grouping', {data:data,keys:Object.keys(data)}); %>
+            </article>
+            <%- partial('widgets/bottom'); %>
+        </div>
+    </main>
+    <% if(theme.tag_aside) { %>
+        <%- partial('widgets/main-aside'); %>
+    <% } %>
+</div>

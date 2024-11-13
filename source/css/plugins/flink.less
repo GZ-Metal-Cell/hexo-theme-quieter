@@ -1,0 +1,91 @@
+.flink {
+    .class-desc {
+        text-align: end;
+    }
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        transition: all 0.5s ease-in-out;
+
+        img {
+            display: flex;
+            width: 48px;
+            height: 48px;
+            max-width: none;
+            margin: 0;
+        }
+
+        &-item {
+            display: flex;
+            margin: 10px;
+
+            &-icon {
+                align-self: center;
+                width: 48px;
+                height: 48px;
+            }
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                padding-left: 10px;
+
+                &-name {
+                    margin: 0;
+                    color: var(--text-primary);
+                }
+
+                &-descr {
+                    max-width: 160px;
+                    color: #718096;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-size: 14px;
+
+                    @media screen and (max-width:660px) {
+                        max-width: 220px;
+                    }
+                }
+            }
+
+            a {
+                width: 220px;
+                height: 100%;
+                text-decoration: none;
+                color: var(--text-primary);
+                border-radius: 10px;
+                display: flex;
+                background: var(--background-secondary);
+                transition: all 0.4s ease-out;
+                padding: 5px 15px;
+                align-content: center;
+                flex-wrap: wrap;
+                border: 2px solid var(--border);
+
+                @media screen and (max-width:660px) {
+                    width: 280px;
+                }
+
+                &:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 4px 5px 2px 0 rgba(50, 50, 50, 0.05);
+                    text-decoration: none;
+
+                    p {
+                        color: var(--text-link);
+                        transition: color 0.5s ease-in-out;
+                    }
+                }
+            }
+        }
+
+        &-info {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+
+}

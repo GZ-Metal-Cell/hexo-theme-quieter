@@ -1,0 +1,31 @@
+footer {
+	.content {
+		display: flex;
+		background: var(--background-secondary);
+		padding: 20px 0;
+		min-height: 60px;
+		flex-direction: column;
+		color: var(--text-secondary);
+		font-size: 14px;
+		justify-content: center;
+		align-items: center;
+		transition: background 0.5s ease-in-out;
+		backdrop-filter: blur(3px);
+		border-top: 2px solid var(--border);
+
+		span{
+			margin: 2px 0;
+			transition: color 0.5s ease-in-out;
+		}
+
+		a {
+			color: var(--text-secondary);
+			text-decoration: none;
+
+			&:hover {
+				color: var(--text-link);
+				text-decoration: underline;
+			}
+		}
+	}
+}

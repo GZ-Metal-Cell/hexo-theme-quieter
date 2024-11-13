@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <linearGradient id="icon-remixicon-a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7f8f9"/>
+      <stop offset="100%" stop-color="#757575"/>
+    </linearGradient>
+    <linearGradient id="icon-remixicon-b" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#888CA7"/>
+      <stop offset="100%" stop-color="#757575"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="56" height="56"/>
+    <path fill="url(#icon-remixicon-a)" d="M34.7339359,8.23265615 C34.2607189,9.39539605 34,10.6672509 34,12 C34,17.5228475 38.4771525,22 44,22 C45.3327491,22 46.6046039,21.7392811 47.7673438,21.2660641 C47.9203002,22.1544657 48,23.0679254 48,24 C48,32.836556 40.836556,40 32,40 L32,48 L8,48 L8,8 L32,8 C32.9320746,8 33.8455343,8.07969978 34.7339359,8.23265615 L34.7339359,8.23265615 Z"/>
+    <polygon fill="url(#icon-remixicon-b)" points="8 8 48 48 8 48"/>
+    <circle cx="44" cy="12" r="6" fill="#06f"/>
+  </g>
+</svg>

@@ -1,0 +1,118 @@
+<aside class="main-aside">
+    <%- js('js/widgets/aside.js'); %>
+    <script>
+        showAside();
+    </script>
+
+    <div class="aside-top">
+        <div class="aside-top-about aside-card">
+            <a href="<%= theme.menus_link.about %>" class="aside-top-about-portrait">
+                <img no-lazy src="<%= theme.about.portrait %>" alt="Q">
+            </a>
+            <div class="aside-top-about-info">
+                <span class="author"> <%- theme.about.author %></span>
+                <span class="description"><%- theme.about.description %></span>
+            </div>              
+            <div class="aside-top-about-site">
+                <a href="<%= theme.menus_link.categories %>" class="aside-top-about-site-item">
+                    <span class="title"><%= theme.menus_title.categories %></span>
+                    <span class="count"><%= site.categories.length %></span>
+                </a>
+                <a href="<%= theme.menus_link.tags %>" class="aside-top-about-site-item">
+                    <span class="title"><%= theme.menus_title.tags %></span>
+                    <span class="count"><%= site.tags.length %></span>
+                </a>
+                <a href="<%= theme.menus_link.archives %>" class="aside-top-about-site-item">
+                    <span class="title"><%= theme.menus_title.archives %></span>
+                    <span class="count"><%= site.posts.length %></span>
+                </a>
+            </div>
+            <div class="aside-top-about-contact">
+                <% if (theme.bottom_icon) { %>
+                    <% theme.bottom_icon.forEach(item => { %>
+                        <a href="<%= item.link %>">
+                            <img no-lazy src="<%= item.icon %>" alt="Quiet">
+                        </a>
+                    <% }) %>
+                <% } %>
+            </div>
+        </div> 
+
+        <% if(page.series) { %>
+            <div class="aside-top-series aside-card">
+                <ol class="aside-top-series-content">
+                    <% let serialNumber = 0; %>
+                    <% let seriesCount = 0; %>
+                    <% let find = false; %>
+                    <% site.posts.sort('date').forEach(function(post) { %>
+                        <% const tags = post.tags; %>
+                        <% if(tags.length >= 1) { %>
+                            <% tags.data.map((tag)=>{ %>
+                                <% if (tag.name === page.series) { %>
+                                    <% seriesCount += 1; %>
+                                    <% if (!find) {serialNumber += 1;} %>
+                                    <% if (post.path === page.path) { %>
+                                        <% find = true; %>
+                                        <li class="series-item active">
+                                            <a class="series-link active" href="/<%= post.path %>">
+                                                <span class="text"><%= post.title %></span>
+                                            </a>
+                                        </li>
+                                    <% } else { %>
+                                        <li class="series-item">
+                                            <a class="series-link" href="/<%= post.path %>">
+                                                <span class="text"><%= post.title %></span>
+                                            </a>
+                                        </li>
+                                    <% } %>
+                                <% } %>
+                            <% }); %>
+                        <% } %>
+                    <% }); %>
+                </ol>
+                <div class="aside-top-series-title">
+                    <h1>
+                        <a href="<%= theme.menus_link.tags %>/<%= page.series %>"><%= theme.menus_title.tags %>：<%= page.series %></a>
+                    </h1>
+                    <span id="serial-number"><%- serialNumber %>/<%- seriesCount %></span>
+                </div>
+            </div>
+            <script>
+                activeSeriesItem();
+            </script> 
+        <% } %>
+    </div>
+
+    <div class="aside-bottom">
+        <% if(page.toc || (is_archive() || is_category() && theme.archive_toc) || (is_tag() && theme.tag_toc)) { %>
+            <script>
+                <% if(page.toc_collapsed != false) { %>
+                    const tocCollapsed = true;
+                <% } else { %>
+                    const tocCollapsed = false;
+                <% } %>
+                <% if(page.toc_depth) { %>
+                    const tocDepth = <%- page.toc_depth %>;
+                <% } else { %>
+                    const tocDepth = 6;
+                <% } %>
+                var headerString = '';
+                for (let i = 1; i <= tocDepth; i++) {
+                    if (i === 1) {
+                        headerString += 'h1';
+                    } else {
+                        headerString += ', h' + i;
+                    }
+                }
+                hbeToc();
+            </script>
+            <div class="aside-bottom-toc aside-card">
+                <div class="aside-bottom-toc-title">
+                    <h1>目录</h1>
+                    <span class="toc-percentage"></span>
+                </div>
+                <ol class="aside-bottom-toc-content"></ol>
+            </div>
+        <% } %>
+    </div>
+</aside>

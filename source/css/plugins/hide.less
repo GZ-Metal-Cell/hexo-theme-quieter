@@ -1,0 +1,53 @@
+// tag-hide
+.hide-inline,
+.hide-block {
+    &>.hide-button {
+        display: inline-block;
+        padding: 5px 18px;
+        background: var(--background-primary);
+        color: var(--text-primary);
+        border-color: var(--text-secondary);
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            background-color: var(--text-link);
+            color: var(--background-primary);
+        }
+
+        &.open {
+            display: none;
+
+            &+div {
+                display: block;
+            }
+
+            &+span {
+                display: inline;
+            }
+        }
+    }
+
+    &>.hide-content {
+        display: none;
+    }
+}
+
+.hide-inline {
+    &>.hide-button {
+        margin: 0 6px;
+    }
+
+    &>.hide-content {
+        margin: 0 6px;
+    }
+}
+
+.hide-block {
+    margin: 0 0 16px;
+}
+
+.toggle {
+    &>.toggle-button {
+        cursor: pointer;
+    }
+}

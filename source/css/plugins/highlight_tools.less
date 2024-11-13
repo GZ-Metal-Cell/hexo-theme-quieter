@@ -1,0 +1,71 @@
+.highlight-tools {
+    background: var(--highlight-tools-bg);
+    position: relative;
+    height: 32px;
+    transition: background 0.5s ease-in-out;
+
+    .copy-notice {
+        font-weight: 500;
+        position: absolute;
+        right: 30px;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.5s;
+        color: var(--highlight-tools-text);
+        -webkit-user-select: none;
+        /* Safari */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* IE 10+ */
+        user-select: none;
+    }
+
+    .copy-button {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        right: 6px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        background-size: cover;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(120%);
+        }
+    }
+
+    .code-lang {
+        font-weight: bold;
+        position: absolute;
+        left: 30px;
+        font-size: 18px;
+        color: var(--highlight-tools-text);
+        font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    }
+
+    .close-code-block-button {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        bottom: 8px;
+        left: 6px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        background-size: cover;
+        transition: transform 0.5s;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+pre {
+    .closed {
+        display: none;
+    }
+}

@@ -1,0 +1,138 @@
+.AES-container {
+    border: 2px solid var(--border);
+    margin: 10px auto;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.5s ease-in-out;
+}
+
+/* form starting stylings ------------------------------- */
+.AES-container .AES-input {
+    position: relative;
+    margin: 20px 0 10px;
+    box-sizing: border-box;
+}
+
+.AES-input input {
+    font-size: 16px;
+    padding: 5px 2px;
+    display: block;
+    width: calc(100% - 4px);
+    border: none;
+    border-bottom: 2px solid var(--border);
+    background: none;
+    color: var(--text-primary);
+    transition: color 0.5s ease-in-out, border 0.5s ease-in-out;
+}
+
+.AES-input input:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+.AES-input label {
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    top: -5px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.AES-input input:focus~label,
+.AES-input input:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: var(--text-link);
+}
+
+/* BOTTOM BARS ================================= */
+.AES-input .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.AES-input .bar:before,
+.AES-input .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    transform: translateY(-2px);
+    position: absolute;
+    background: var(--text-link);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.AES-input .bar:before {
+    left: 50%;
+}
+
+.AES-input .bar:after {
+    right: 50%;
+}
+
+/* active state */
+.AES-input input:focus~.bar:before,
+.AES-input input:focus~.bar:after {
+    width: 50%;
+}
+
+/* hlER ================================== */
+.AES-input .hl {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+.AES-input input:focus~.hl {
+    -webkit-animation: inputhler 0.3s ease;
+    -moz-animation: inputhler 0.3s ease;
+    animation: inputhler 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputhler {
+    from {
+        background: var(--text-link);
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputhler {
+    from {
+        background: var(--text-link);
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputhler {
+    from {
+        background: var(--text-link);
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}

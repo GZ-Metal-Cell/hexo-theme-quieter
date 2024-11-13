@@ -1,0 +1,60 @@
+<% var title = page.title ? page.title : theme.title %>
+<title><%- title %> | <%- theme.suffix %></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="<%- theme.icon.favicon %>">
+<link href="/css/plugins/print.css" media="print" rel="stylesheet" />
+<%- css('css/index.css'); %>
+<% if(page.tags && page.tags.data.length) { 
+    let text = '';
+%>
+<% page.tags.data.forEach((item, index) => {
+    text += item.name + ',';
+}) %>
+<meta name="keywords" content="<%- text %>">
+<meta name="description" content="<%- page.description %>">
+<% }else{ %>
+    <meta name="keywords" content="<%- theme.keyword %>">
+    <meta name="description" content="<%- theme.web_description %>">
+<% } %>
+
+<%- js('js/plugins/jquery.min.js'); %>
+<%- js('js/plugins/hljs.min.js'); %>
+<%- js('js/plugins/init.js'); %>
+<%- js('js/plugins/hide.js'); %>
+<%- js('js/plugins/tabs.js'); %>
+
+<% if(page.AES) { %>
+    <%- js('js/plugins/crypto-js.min.js'); %>
+    <%- css('css/plugins/AESContainer.css'); %>
+    <%- js('js/plugins/AESContainer.js'); %>
+<% } %>
+    
+<% if(page.APlayer) { %>
+    <%- css('css/plugins/APlayer.css'); %>
+    <%- js('js/plugins/APlayer.min.js'); %>
+<% } %>
+
+<% if (theme.mermaid.enable && page.mermaid) { %>
+    <script src='<%= theme.mermaid.js %>'></script>
+    <script>mermaid.initialize({startOnLoad:false});</script>
+    <%- css('css/plugins/mermaid.css'); %>
+    <%- js('js/plugins/mermaid.js'); %>
+<% } %>
+
+<% if(page.inject) { %>
+    <% if(page.inject.head) { %>
+        <% for(let i = 0; i < page.inject.head.length; i++){ %>
+            <%- page.inject.head[i] %>
+        <% } %>
+    <% } %>
+<% } %>
+
+<% if(theme.inject) { %>
+    <% if(theme.inject.head) { %>
+        <% for(let i = 0; i < theme.inject.head.length; i++){ %>
+            <%- theme.inject.bottom[i] %>
+        <% } %>
+    <% } %>
+<% } %>

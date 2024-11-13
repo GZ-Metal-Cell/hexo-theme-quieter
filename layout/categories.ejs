@@ -1,0 +1,35 @@
+<%- partial('_partial/sticky-header', {name:'categories', bg: true}); %>
+
+<div class="main-wrapper<%= page.aside ? '' : ' close-aside' %>">
+    <main class="categories">
+        <%- partial('_partial/main-header',{name:'categories', message:theme.headers.categories.message, icon:theme.headers.categories.icon}); %>
+		<div class="article-container categories-content">
+			<article class="categories-content-info">
+				<div class="categories-class">
+					<% site.categories.map(function(category, index){  %>
+						<a class="categories-class-card" href="<%- url_for(category.path) %>">
+							<span class="categories-class-card-title"><%= category.name %></span>
+							<div class="categories-class-card-number">
+								<span>
+									<span class="categories-length"><%= category.length %></span> 篇
+								</span>
+							</div>
+						</a>
+					<% }) %>
+				</div>
+				<script>
+					var links = "<%- theme.random_covers %>".split(',');
+					var elements = document.querySelectorAll('.categories-class-card');
+					elements.forEach(function(element) {
+						var randomLink = links[Math.floor(Math.random() * links.length)];
+						element.style.backgroundImage = "url('" + randomLink + "')";
+					});
+				</script>
+			</article>
+			<%- partial('widgets/bottom'); %>
+		</div>
+    </main>
+    <% if(page.aside) { %>
+        <%- partial('widgets/main-aside'); %>
+    <% } %>
+</div>

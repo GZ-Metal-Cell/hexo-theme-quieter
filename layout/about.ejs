@@ -1,0 +1,16 @@
+<%- partial('_partial/sticky-header', {name: 'about', bg: true}); %>
+
+<div class="main-wrapper<%= page.aside ? '' : ' close-aside' %>">
+    <main class="about">
+        <%- partial('_partial/main-header',{name:'about', message:theme.headers.about.message, icon:theme.headers.about.icon}); %>
+        <div class="article-container about-content">
+            <article class="about-content-info">
+                <%- page.content %>
+            </article>
+            <%- partial('widgets/bottom'); %>
+        </div>
+    </main>
+    <% if(page.aside) { %>
+        <%- partial('widgets/main-aside'); %>
+    <% } %>
+</div>

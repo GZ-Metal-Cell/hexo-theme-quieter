@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang=<%= theme.lang %> data-theme="light">
+	<%- js('js/plugins/toggleTheme.js'); %>
+	<script>
+		setTheme();
+	</script>
+	<head>
+		<%- partial('_partial/head'); %>
+	</head>
+
+	<body>
+		<%- body %>
+		<%- partial('_partial/footer'); %>
+	</body>
+
+	<!-- Hexo-Quiet 主题  https://github.com/79e/hexo-theme-quiet -->
+</html>
+

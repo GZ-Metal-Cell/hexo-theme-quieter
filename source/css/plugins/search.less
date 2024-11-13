@@ -1,0 +1,109 @@
+.local-search {
+    display: grid;
+
+    .input-container {
+        display: flex;
+        height: 24px;
+        margin: 5px 10px 10px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        border: 2px solid var(--text-secondary);
+        transition: border 0.5s ease-in-out;
+        align-items: center;
+    }
+
+    .input {
+        width: 100%;
+        color: var(--text-primary);
+        font-size: 16px;
+        padding-left: 0.6em;
+        border: none;
+        outline: none;
+        background: none;
+        transition: color 0.5s ease-in-out;
+    }
+
+    a.search-result-title {
+        display: flow !important;
+        width: auto !important;
+        height: auto !important;
+        margin-left: 0 !important;
+    }
+
+    .content {
+        overflow-y: overlay;
+        max-height: calc(80vh - 200px);
+        width: 100%;
+
+        ul li {
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-weight: 400;
+            transition: border-bottom 0.5s ease-in-out;
+            margin: 5px;
+
+            &::before{
+                display: none;
+            }
+
+            &:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+        
+            a {
+                font-size: 18px;
+                text-decoration: none;
+                font-weight: bold;
+                color: var(--text-primary);
+
+                &:hover {
+                    color: var(--text-link);
+                    text-decoration: underline;
+                }
+            }
+ 
+            p {
+                font-size: 14px;
+                max-height: 120px;
+                overflow: hidden;
+            }
+        
+            em.search-keyword {
+                color: var(--text-link);
+                transition: color 0.5s ease-in-out;
+                font-weight: bold;
+                font-style: normal;
+            }
+        }
+    }
+
+    .result-empty {
+        color: #888;
+        text-align: center;
+        display: block;
+    }
+
+    .search-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    input[type="search"]::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        height: 10px;
+        width: 10px;
+        background: url(/images/icon/close.png) no-repeat;
+        background-size: contain;
+    }
+
+    input[type="search"]::-webkit-search-cancel-button:hover {
+        filter: brightness(120%);
+    }
+
+    .result {
+        text-align: center;
+    }
+}

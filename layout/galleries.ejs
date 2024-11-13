@@ -1,0 +1,24 @@
+<%- partial('_partial/sticky-header', {name:'galleries', bg: true}); %>
+<% page.aside = false; %>
+
+<div class="main-wrapper<%= page.aside != 'false' ? '' : ' close-aside' %>">
+    <main class="galleries">
+        <%- partial('_partial/main-header',{name:'galleries', message: page.headers ? page.headers : theme.headers.galleries.message, icon:theme.headers.galleries.icon}); %>
+        <div class="galleries-container">
+            <div class="galleries-<%= page.layout_style ? page.layout_style : 'block' %>">
+                <% page.galleries.forEach(function(item) { %>
+                    <div class="galleries-<%= page.layout_style ? page.layout_style : 'block' %>-content">
+                        <a class="img-container" href="<%= item.title %>">
+                            <div class="photo-frames">
+                                <img style="<%- item.cover_style || '' %>" src="<%= item.cover ? item.cover : theme.default_cover %>" alt="Cover">
+                            </div>
+                            <h1 class="title"><%= item.title %></h1>
+                        </a>
+                        <p class="description"><%= item.description %></p>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+        <%- partial('widgets/bottom'); %>
+    </main>
+</div>

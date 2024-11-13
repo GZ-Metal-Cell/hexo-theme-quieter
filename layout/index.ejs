@@ -1,0 +1,89 @@
+<%- partial('_partial/sticky-header', {name:'home', bg: true}); %>
+
+<div class="main-wrapper">
+	<main class="home">
+		<%- partial('_partial/main-header', {name:'home', message:theme.headers.home.message, icon:theme.headers.home.icon}); %>
+		<div class="post-card-container">
+			<div class="post-card">
+				<% page.posts.each(function (post,i) { %>
+					<div class="post-card-display">
+						<a class="post-card-display-item" href="<%- url_for(post.path) %>">
+							<div class="post-card-top">
+								<h1 class="post-card-top-title"><%- post.title %></h1>
+								<% if(post.top){ %>
+									<img no-lazy src="<%= theme.icon.sticky %>" class="sticky" alt="Icon">
+								<% } %>
+							</div>
+							<div class="img-container">
+								<img style="<%- post.cover_style || '' %>" src="<%= post.cover ? post.cover : theme.default_cover %>" alt="Cover">
+							</div>
+						</a>
+						<span class="post-card-description">
+							<%= post.description %>
+						</span>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<a class="info-category" href="/<%-post.categories.data[0] && post.categories.data[0].path %>">
+									<%- post.categories.data[0] ? post.categories.data[0].name : theme.author ? theme.author : 'Quiet' %>
+								</a>
+								<time class="info-date">
+									<a href="<%= theme.menus_link.archives %>/<%- date(post.date, "YYYY") %>"><%- date(post.date, "YYYY" ) %></a>/<a href="<%= theme.menus_link.archives %>/<%- date(post.date, "YYYY") %>/<%- date(post.date, "MM" ) %>"><%- date(post.date, "MM") %></a>/<%- date(post.date, "DD") %>
+								</time>
+							</div>
+							<img no-lazy src="<%- post.password ? theme.icon.locked : theme.icon.normal %>" class="meat-type" alt="Icon">
+						</div>
+					</div>
+				<% }) %>
+			</div>
+		</div>
+		<div class="change-page">
+			<div class="change-page-item">
+				<% if(page.prev !== 0) { // 前一页 %>
+					<a href="<%- url_for(page.prev_link)%>">&#60;</a>
+				<% } %>
+				<% if (page.current > theme.pagination + 1) { // 第一页 %>
+					<a href="<%- url_for('/') %>">1</a>	
+				<% } %>
+				<% if (page.current > theme.pagination + 2) { // 省略号 %>
+					<span>...</span>
+				<% } %>
+				<% for(var i = page.current - theme.pagination; i <= page.current + theme.pagination; i++){ // 当前页及其临近页 %>
+					<% if(i >= 1 && i <= page.total){ %>
+						<% if(i === page.current){ // 当前页 %>
+							<div class="select-container">
+								<select aria-label="pagination_select" id="pagination_select" ></select>
+							</div>
+							<script>
+								var select = document.getElementById("pagination_select");
+								for(var i = 1; i < <%= page.total %> + 1; i++)
+								{
+									var option = document.createElement("option");
+									option.value = i == 1 ? "/" : "/page/" + i.toString();
+									option.text = i;
+									select.add(option);		
+								}
+								select.selectedIndex = <%= page.current %> - 1;
+								select.onchange = function() {
+									window.location.href = select.value;
+								};
+							</script>
+						<% } else { // 临近页 %>
+							<a href="<%- i=== 1 ? '/' : url_for('/page/' + i + '/') %>"><%= i %></a>
+						<% } %>
+					<% } %>
+				<% } %>
+				<!--
+					<% if (page.total - page.current > theme.pagination) { // 尾页 %>
+						<span>...</span>
+						<a href="<%- page.total === 1 ? '/' : url_for('/page/' + page.total + '/') %>"><%= page.total %></a>
+					<% } %>
+				-->
+				<% if(page.next !== 0) { // 后一页 %>
+					<a href="<%- url_for(page.next_link)%>">&#62;</a>
+				<% } %>
+			</div>
+		</div>
+		<% page.comments = false; %>
+		<%- partial('widgets/bottom'); %>
+	</main>
+</div>

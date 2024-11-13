@@ -1,0 +1,66 @@
+<% if(page.rightside != false){ %>
+	<%- partial('widgets/rightside'); %>
+<% } %>
+
+<div class="post-bottom">
+    <% if(is_post() && (page.next || page.prev)) { %>
+        <div class="post-paging">     
+            <div class="post-paging-last">
+                <% if(page.prev) { %>
+                    <a href="<%- url_for(page.prev.path) %>">
+                        上一篇：<%- page.prev.title %>
+                    </a>
+                <% } %>
+            </div>
+            <div class="post-paging-next">
+                <% if(page.next) { %>
+                    <a href="<%- url_for(page.next.path) %>">
+                        下一篇：<%- page.next.title %>
+                    </a>
+                <% } %>
+            </div>
+        </div>
+    <% } %>
+    
+    <% if(page.comments != false){ %>
+        <% if(theme.giscus.enable) { %>
+            <div class="giscus comments"></div>
+            <script>
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://giscus.app/client.js';
+                scriptElement.setAttribute('data-repo', '<%= theme.giscus.repo %>');
+                scriptElement.setAttribute('data-repo-id', '<%= theme.giscus.repo_id %>');
+                scriptElement.setAttribute('data-category', '<%= theme.giscus.category %>');
+                scriptElement.setAttribute('data-category-id', '<%= theme.giscus.category_id %>');
+                scriptElement.setAttribute('data-mapping', '<%= theme.giscus.mapping %>');
+                scriptElement.setAttribute('data-strict', '<%= theme.giscus.strict %>');
+                scriptElement.setAttribute('data-reactions-enabled', '<%= theme.giscus.reactions_enabled %>');
+                scriptElement.setAttribute('data-emit-metadata', '<%= theme.giscus.emit_metadata %>');
+                scriptElement.setAttribute('data-input-position', '<%= theme.giscus.input_position %>');
+                scriptElement.setAttribute('data-theme', localStorage.getItem('theme') === 'light' ? 'light' : 'dark_high_contrast');
+                scriptElement.setAttribute('data-lang', '<%= theme.lang %>');
+                <% if (theme.giscus.dataloading == 'lazy') { %>
+                    scriptElement.setAttribute('data-loading', 'lazy');
+                <% } %>
+                scriptElement.setAttribute('crossorigin', 'anonymous');
+                scriptElement.async = true;
+                document.head.appendChild(scriptElement);
+            </script>
+        <% } else if(theme.gitalk.enable) { %>
+            <%- js('js/plugins/gitalk.min.js'); %>
+            <%- css('css/plugins/gitalk.css'); %>
+            <div id="gitalk" class="comments"></div>
+            <!-- Gitalk -->
+            <script src="/js/plugins/md5.min.js"></script>
+            <script>
+                const data = '{"clientID":"<%= theme.gitalk.clientID %>","clientSecret":"<%= theme.gitalk.clientSecret %>","repo":"<%= theme.gitalk.repo %>","owner":"<%= theme.gitalk.owner %>","admin":"<%= theme.gitalk.admin %>"}'
+                const gitalk = new Gitalk({
+                    ...JSON.parse( data),
+                    id:md5(location.pathname), //  location.pathname,
+                    distractionFreeMode:false
+                })
+                gitalk.render('gitalk');
+            </script>
+        <% } %>
+    <% } %>
+</div>

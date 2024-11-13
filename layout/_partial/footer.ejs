@@ -1,0 +1,101 @@
+<footer>
+	<div class="content">
+		<span>©<%= theme.since_year %>-<%= new Date().getFullYear() %>&nbsp;By&nbsp;<a href="<%- page.about_link ? page.about_link : '/about' %>"><%- theme.author %></a>.</span>
+		<span><a href="https://hexo.io/">Hexo</a> theme by <a href="https://github.com/79e/hexo-theme-quiet">Quiet</a>.</span>
+		<% if(theme.icp.enable) { %>
+			<span style="display: flex;">
+				<img no-lazy alt="icp" src="<%= theme.icp.icon %>" style="width: 16px; height: 16px;">
+				<a href="<%= theme.icp.link %>" target="_blank"><%= theme.icp.text %></a>
+			</span>
+		<% } %>
+	</div>
+
+	<%- js('js/plugins/ref.js'); %>
+	<%- js('js/plugins/highlight_tools.js'); %>
+	<script>
+		var copyIcon = "<%= theme.icon.copy %>";
+		var closeCodeBlockIcon = "<%= theme.icon.close_code_block %>";
+		var highlightShrink = "<%= page.highlight_shrink %>";
+		var HighlightHeightLimit = "<%= page.highlight_height_limit %>";
+	</script>
+	
+	<%- partial('widgets/analytics');  %>
+
+	<% if(page.photoFigcaption) { %>
+		<%- js('js/plugins/photoFigcaption.js'); %>
+	<% } %>
+
+	<% if(page.math) { %>
+		<% if(theme.mathjax.enable) { %>
+			<script>
+				const mathjax_js = '<%= theme.mathjax.js %>';
+			</script>
+			<%- js('js/plugins/mathjax.js'); %>
+		<% } else if (theme.katex.enable) { %>
+			<%- js('js/plugins/katex.js'); %>
+			<script>
+				const katex_css = '<%= theme.katex.css %>';
+				const katex_js = '<%= theme.katex.js %>';
+				const katex_auto_render = '<%= theme.katex.auto_render %>';
+			</script>
+			<link rel="stylesheet" href="<%= theme.katex.css %>" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+			<script defer src="<%= theme.katex.js %>" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+			<script defer src="<%= theme.katex.auto_render %>" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+			<% if (theme.katex.copy_tex.enable){ %>
+				<link href="<%= theme.katex.copy_tex.css %>" rel="stylesheet">
+				<script src="<%= theme.katex.copy_tex.js %>"></script>
+			<% } %>
+		<% } %>
+	<% } %>
+
+    <% if(theme.replaceSpacesWithNbsp) { %>
+		<%- js('js/plugins/replaceSpacesWithNbsp.js'); %>
+	<% } %>
+
+	<% if(page.gallery) { %>
+		<%- js('js/plugins/masonry.pkgd.js'); %>
+		<%- js('js/plugins/imagesloaded.pkgd.js'); %>
+		<script>var lazyLoad = <%= theme.lazyload %>;</script>
+		<%- js('js/plugins/gallery.js'); %>
+	<% } %>
+	
+	<% if(!page.password) { %>
+		<script>
+			if (typeof init === 'function') {
+				init();
+			}
+		</script>
+	<% } %>
+
+	<% if(theme.inject) { %>
+		<% if(theme.inject.bottom) { %>
+			<% for(let i = 0; i < theme.inject.bottom.length; i++){ %>
+				<%- theme.inject.bottom[i] %>
+			<% } %>
+		<% } %>
+	<% } %>
+
+	<% if(page.inject) { %>
+		<% if(page.inject.bottom) { %>
+			<% for(let i = 0; i < page.inject.bottom.length; i++){ %>
+				<%- page.inject.bottom[i] %>
+			<% } %>
+		<% } %>
+	<% } %>
+
+	<!--
+		<%- js('js/plugins/jquery.pjax.min.js'); %>
+		<script>
+			$(document).pjax('a[target!=_blank]', 'main', {
+				fragment: 'main',
+				timeout: 8000
+			});
+
+			$(document).on('pjax:complete', function() {
+			});
+		</script> 
+	-->
+	<script>
+		console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+	</script>
+</footer>
