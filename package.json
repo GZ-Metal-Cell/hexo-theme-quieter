@@ -1,0 +1,32 @@
+{
+  "name": "hexo-theme-quieter",
+  "version": "1.0.1",
+  "description": "🍓A simple and fully functional Hexo theme, improved based on Hexo theme quiet.",
+  "main": "package.json",
+  "scripts": {
+    "test": "echo test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GZ-Metal-Cell/hexo-theme-quieter.git"
+  },
+  "keywords": [
+    "hexo",
+    "hexo-theme",
+    "theme",
+    "quieter",
+    "simple"
+  ],
+  "author": "Gz-Metal-Cell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GZ-Metal-Cell/hexo-theme-quieter/issues"
+  },
+  "homepage": "https://github.com/GZ-Metal-Cell/hexo-theme-quieter#readme",
+  "devDependencies": {
+    "hexo": "^6.1.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-less": "^4.0.0",
+    "crypto-js": "^4.2.0"
+  }
+}

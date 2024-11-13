@@ -10,7 +10,7 @@ const flinkFn = (args, content) => {
     let result = ''
 
     content.forEach(i => {
-        const className = i.class_name ? `${hexo.render.renderSync({ text: '#' + i.class_name, engine: 'markdown' })}`: '';// `<h1 class="flink-name">${i.class_name}</h1>` : ''
+        const className = i.class_name ? `${hexo.render.renderSync({ text: '# ' + i.class_name, engine: 'markdown' })}`: '';// `<h1 class="flink-name">${i.class_name}</h1>` : ''
         const classDesc = i.class_desc ? `<p class="class-desc">${i.class_desc}</p>` : ''
 
         let listResult = ''

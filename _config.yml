@@ -1,13 +1,13 @@
 # 网站标题
 title: 主页
 # 网站标题后缀
-suffix: Hexo-Theme-Quiter
+suffix: Hexo-Theme-Quieter
 # 作者名称(会显示在首页文章下面)
-author: Zi-Zi
+author: GZ-Metal-Cell
 # 网站关键字
 keyword: Hexo theme, blog
 # 网站描述
-web_description: 🍓 A simple and fully functional Hexo theme, improved based on Hexo theme quiet.
+web_description: 🍓A simple and fully functional Hexo theme, improved based on Hexo theme quiet.
 # 网站语言
 lang: zh-CN
 # 网站建站时间
@@ -22,7 +22,7 @@ menus_title:
     links: 链接
     about: 关于
 
-# 导航 （不建议修改）
+# 导航
 menus_link:
     home: /
     categories: /categories
@@ -122,7 +122,7 @@ gitalk:
     clientSecret: #（需要替换）GitHub Application Client Secret.
     repo: #（需要替换）GitHub repository.
     owner: #（需要替换）GitHub repository 所有者，可以是个人或者组织。
-    admin: #（需要替换）GitHub repository 的所有者和合作者 (对这个 repository 有写权限的用户)。
+    admin: #（需要替换）GitHub repository 的所有者和合作者（对这个 repository 有写权限的用户）。
 
 # 底部显示的图标（github 或者其他）
 bottom_icon:
@@ -173,10 +173,10 @@ tag_toc: true
 pagination: 3
 
 # 搜索（如果 hexo-generator-search 启用的话）
-search: true
+search: false
 
 # 懒加载（如果 hexo-lazyload-image 启用的话）
-lazyload: true
+lazyload: false
 
 # 字数统计（前端方法，不需要 hexo-wordcount）
 wordcount: true
@@ -206,6 +206,7 @@ katex:
         js: /js/plugins/copy-tex.js # https://cdn.bootcdn.net/ajax/libs/KaTeX/0.12.0/contrib/copy-tex.js
 
 # mermaid chart
+# 可以配合（hexo-filter-mermaid-diagrams）
 mermaid: ## mermaid url https://github.com/knsv/mermaid
   enable: true  # default true
   js: /js/mermaid.min.js 
@@ -213,7 +214,7 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
     #startOnload: true  // default true
 
 # 默认的 cover (默认缩略图) 在没有填写（这里可以替换（可以是 api 也可以是固定的图））
-default_cover: "https://tuapi.eees.cc/api.php?type=302&category=fengjing"
+default_cover: "/images/random_covers/01.webp"
 
 # 所有网页中插入的 html 语句
 inject: 
@@ -227,6 +228,12 @@ icp:
     link: 
     text: 
 
+# 网页 header 的图片，每次会从下面的列表中随机选取一张
 random_covers:
-    - "https://gz-metal-cell.github.io/images/random_covers/22.webp"
-    - "https://gz-metal-cell.github.io/images/random_covers/24.webp"
+    - "/images/random_covers/01.webp"
+    - "/images/random_covers/02.webp"
+    - "/images/random_covers/03.webp"
+    - "/images/random_covers/04.webp"
+    - "/images/random_covers/05.webp"
+    - "/images/random_covers/06.webp"
+    - "/images/random_covers/07.webp"

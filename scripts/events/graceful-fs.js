@@ -1,3 +1,3 @@
 hexo.on('ready', () => {
-  hexo.log.info(`This is Quiet Theme!`)
+  hexo.log.info(`This is Quieter Theme!`)
 })

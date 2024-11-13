@@ -1,7 +1,11 @@
 <footer>
 	<div class="content">
-		<span>©<%= theme.since_year %>-<%= new Date().getFullYear() %>&nbsp;By&nbsp;<a href="<%- page.about_link ? page.about_link : '/about' %>"><%- theme.author %></a>.</span>
-		<span><a href="https://hexo.io/">Hexo</a> theme by <a href="https://github.com/79e/hexo-theme-quiet">Quiet</a>.</span>
+		<% if(theme.since_year == new Date().getFullYear()) { %>
+			<span>©<%= theme.since_year %>&nbsp;By&nbsp;<a href="<%- page.about_link ? page.about_link : '/about' %>"><%- theme.author %></a>.</span>
+		<% } else { %>
+			<span>©<%= theme.since_year %>-<%= new Date().getFullYear() %>&nbsp;By&nbsp;<a href="<%- page.about_link ? page.about_link : '/about' %>"><%- theme.author %></a>.</span>
+		<% } %>
+		<span><a href="https://hexo.io/">Hexo</a> theme by <a href="https://github.com/GZ-Metal-Cell/hexo-theme-quieter">Quieter</a>.</span>
 		<% if(theme.icp.enable) { %>
 			<span style="display: flex;">
 				<img no-lazy alt="icp" src="<%= theme.icp.icon %>" style="width: 16px; height: 16px;">
@@ -96,6 +100,6 @@
 		</script> 
 	-->
 	<script>
-		console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+		console.log('\n %c Hexo-Quieter 主题 %c https://github.com/GZ-Metal-Cell/hexo-theme-quieter \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 	</script>
 </footer>

@@ -24,7 +24,7 @@
 						<div class="post-card-meat">
 							<div class="meat-info">
 								<a class="info-category" href="/<%-post.categories.data[0] && post.categories.data[0].path %>">
-									<%- post.categories.data[0] ? post.categories.data[0].name : theme.author ? theme.author : 'Quiet' %>
+									<%- post.categories.data[0] ? post.categories.data[0].name : theme.author ? theme.author : 'Quieter' %>
 								</a>
 								<time class="info-date">
 									<a href="<%= theme.menus_link.archives %>/<%- date(post.date, "YYYY") %>"><%- date(post.date, "YYYY" ) %></a>/<a href="<%= theme.menus_link.archives %>/<%- date(post.date, "YYYY") %>/<%- date(post.date, "MM" ) %>"><%- date(post.date, "MM") %></a>/<%- date(post.date, "DD") %>
