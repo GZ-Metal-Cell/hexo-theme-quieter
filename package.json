@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-quieter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🍓A simple and fully functional Hexo theme, improved based on Hexo theme quiet.",
   "main": "package.json",
   "scripts": {

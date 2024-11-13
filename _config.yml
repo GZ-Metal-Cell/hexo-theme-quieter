@@ -32,6 +32,7 @@ menus_link:
     links: /links
     about: /about
 
+# 个人信息
 about: 
     author: Zi-Zi
     portrait: 'https://gz-metal-cell.github.io/about/portrait.png'
@@ -209,7 +210,7 @@ katex:
 # 可以配合（hexo-filter-mermaid-diagrams）
 mermaid: ## mermaid url https://github.com/knsv/mermaid
   enable: true  # default true
-  js: /js/mermaid.min.js 
+  js: https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js
   options: # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     #startOnload: true  // default true
 

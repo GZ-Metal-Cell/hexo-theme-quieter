@@ -20,7 +20,7 @@ const flinkFn = (args, content) => {
             <div class="flink-list-item">
                 <a href="${j.link}" title="${j.name}" target="_blank">
                     <div class="flink-list-item-icon">
-                        <img no-lazy no-fancybox src="${j.avatar}"' alt="${j.name}" />
+                        <img no-lazy no-fancybox no-figcaption src="${j.avatar}"' alt="${j.name}" />
                     </div>
                     <div class="flink-list-item-info">
                         <p class="flink-list-item-info-name">${j.name}</p>

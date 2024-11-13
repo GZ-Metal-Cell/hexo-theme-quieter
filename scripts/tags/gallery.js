@@ -10,7 +10,7 @@ const galleryFn = (args, content) => {
     let result = ''
 
     content.forEach(i => {
-        result += `<div class="grid-item"><img src="${i.src}" alt="${i.title}" /></div>`
+        result += `<div class="grid-item"><img no-figcaption src="${i.src}" alt="${i.title}" /></div>`
     })
 
     return `<div class="grid"><div class="grid-sizer"></div>${result}</div>`

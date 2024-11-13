@@ -55,6 +55,8 @@
 
 Multiple plugin adaptation optimization:
 
+- Pin `hexo-generator-index-pin-top`：[netcan/hexo-generator-index-pin-top: Index generator plugin for Hexo. Pin top version](https://github.com/netcan/hexo-generator-index-pin-top)
+
 - Article encryption `hexo-blog-encrypt`：[D0n9X1n/hexo-blog-encrypt: Yet, just another hexo plugin for security.](https://github.com/D0n9X1n/hexo-blog-encrypt)
 
 - Local search `hexo-generator-search`：[wzpan/hexo-generator-search: A plugin to generate search data for Hexo.](https://github.com/wzpan/hexo-generator-search)
