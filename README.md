@@ -1,4 +1,4 @@
-![LOGO](https://hexo-theme-quieter.github.io/2024/11/13/LOGO.webp)
+![LOGO](https://hexo-theme-quieter.github.io/2024/11/13/Quieter%20%E4%B8%BB%E9%A2%98%E4%BB%8B%E7%BB%8D/LOGO.webp)
 
 <p style="text-align: center; font-size: 20px;"><b>Hexo-Theme-Quieter</b></p>
 
@@ -14,7 +14,7 @@
   </a>
 </div>
 
-![Quieter](https://hexo-theme-quieter.github.io/2024/11/13/Quieter.webp)
+![Quieter](https://hexo-theme-quieter.github.io/2024/11/13/Quieter%20%E4%B8%BB%E9%A2%98%E4%BB%8B%E7%BB%8D/Quieter.webp)
 
 # 简介
 
