@@ -21,9 +21,11 @@
 
 ![Quieter](https://hexo-theme-quieter.github.io/2024/11/13/Quieter%20%E4%B8%BB%E9%A2%98%E4%BB%8B%E7%BB%8D/Quieter.webp)
 
+**中文** | [English](README-en.md)
+
 # 简介
 
-​	🍓 一个简洁且功能齐全的 Hexo 主题，在 [Quiet](https://github.com/79e/hexo-theme-quiet) 主题的基础上所开发。
+​	🍓一款简洁且功能齐全的 Hexo 主题，在 [Quiet](https://github.com/79e/hexo-theme-quiet) 主题的基础上所开发。
 
 - 项目仓库：[GZ-Metal-Cell/hexo-theme-quieter: 🍓 A simple and fully functional Hexo theme, improved based on Hexo theme quiet.](https://github.com/GZ-Metal-Cell/hexo-theme-quieter)
 
@@ -271,6 +273,7 @@ aside: true
 ​		在 `source/` 文件夹下创建文件 `404.md`，修改其内容（下面是一个 404 页的范例）：
 
 ```markdown
+---
 title: 404
 date: XXXX-XX-XX XX:XX:XX
 type: "404"
@@ -278,6 +281,7 @@ layout: "404"
 comments: false
 rightside: false
 picture: "https://gz-metal-cell.github.io/images/404/picture.png"
+---
 ```
 
 ### 评论功能
