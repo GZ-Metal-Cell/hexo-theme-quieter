@@ -1,6 +1,11 @@
-![LOGO](https://hexo-theme-quieter.github.io/2024/11/13/Quieter%20%E4%B8%BB%E9%A2%98%E4%BB%8B%E7%BB%8D/LOGO.webp)
+<div align="center">
+  <a href="https://github.com/GZ-Metal-Cell/hexo-theme-quieter/" target="_blank" rel="noopener noreferrer">
+    <img src="https://hexo-theme-quieter.github.io/2024/11/13/Quieter%20%E4%B8%BB%E9%A2%98%E4%BB%8B%E7%BB%8D/LOGO.webp" alt="LOGO" width="100">
+  </a>
+</div>
 
-<p style="text-align: center; font-size: 20px;"><b>Hexo-Theme-Quieter</b></p>
+
+<h3 align="center">Hexo-Theme-Quieter</h3> 
 
 <div align="center">
   <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">
