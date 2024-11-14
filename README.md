@@ -31,6 +31,8 @@
 
 - 演示及帮助页面：[主页 | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/)
 
+- 示例模板：[Hexo-Theme-Quieter/hexo-theme-quieter-tutorial: Quieter 主题的示例模板。](https://github.com/Hexo-Theme-Quieter/hexo-theme-quieter-tutorial)
+
 # 特性
 
 - 简洁的平面 UI 设计

@@ -31,6 +31,8 @@
 
 - Demo and Help Page：[Homepage | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/)
 
+- Sample template: [Hexo-Theme-Quieter/hexo-theme-quieter-tutorial: Quieter's sample template.](https://github.com/Hexo-Theme-Quieter/hexo-theme-quieter-tutorial)
+
 # Features
 
 - Concise graphic UI design
