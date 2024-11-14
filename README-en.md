@@ -249,7 +249,7 @@ toc: true
 
 ### Gallery Page
 
-For specific configuration, see the help document: [Gallery Page Configuration | Hexo-Theme-Quiter](https://hexo-theme-quieter.github.io/2024/11/13/相册页的配置/)
+For specific configuration, see the help document: [Quieter Gallery Page | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter 相册页面/)
 
 ### About Page
 
