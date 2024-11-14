@@ -1,4 +1,4 @@
-# 网站标题
+# 网站主页标题
 title: 主页
 # 网站标题后缀
 suffix: Hexo-Theme-Quieter
@@ -97,8 +97,8 @@ headers:
 
 # 网页访问统计
 web_analytics:
-    enable: false  # 需要改为 true
-    busuanzi: false  # 不蒜子访问量统计
+    enable: true  # 需要改为 true
+    busuanzi: true  # 不蒜子访问量统计
     baidu:  #（替换）百度统计的 Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串
 
 # Giscus
@@ -174,7 +174,7 @@ tag_toc: true
 pagination: 3
 
 # 搜索（如果 hexo-generator-search 启用的话）
-search: false
+search: true
 
 # 懒加载（如果 hexo-lazyload-image 启用的话）
 lazyload: false
@@ -215,7 +215,17 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
     #startOnload: true  // default true
 
 # 默认的 cover (默认缩略图) 在没有填写（这里可以替换（可以是 api 也可以是固定的图））
-default_cover: "/images/random_covers/01.webp"
+default_cover: "/images/random_top_img/01.webp"
+
+# 网页的 top_img，每次会从下面的列表中随机选取一张
+random_top_img:
+    - "/images/random_top_img/01.webp"
+    - "/images/random_top_img/02.webp"
+    - "/images/random_top_img/03.webp"
+    - "/images/random_top_img/04.webp"
+    - "/images/random_top_img/05.webp"
+    - "/images/random_top_img/06.webp"
+    - "/images/random_top_img/07.webp"
 
 # 所有网页中插入的 html 语句
 inject: 
@@ -229,12 +239,3 @@ icp:
     link: 
     text: 
 
-# 网页 header 的图片，每次会从下面的列表中随机选取一张
-random_covers:
-    - "/images/random_covers/01.webp"
-    - "/images/random_covers/02.webp"
-    - "/images/random_covers/03.webp"
-    - "/images/random_covers/04.webp"
-    - "/images/random_covers/05.webp"
-    - "/images/random_covers/06.webp"
-    - "/images/random_covers/07.webp"

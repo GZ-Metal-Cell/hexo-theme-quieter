@@ -35,7 +35,7 @@
                 if ("<%- page.top_img %>") {
                     links = "<%- page.top_img %>".split(',');
                 } else {
-                    links = "<%- theme.random_covers %>".split(',');
+                    links = "<%- theme.random_top_img %>".split(',');
                 }
             
                 var randomLink = links[Math.floor(Math.random() * links.length)];

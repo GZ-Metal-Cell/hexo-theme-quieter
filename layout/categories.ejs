@@ -18,7 +18,7 @@
 					<% }) %>
 				</div>
 				<script>
-					var links = "<%- theme.random_covers %>".split(',');
+					var links = "<%- theme.random_top_img %>".split(',');
 					var elements = document.querySelectorAll('.categories-class-card');
 					elements.forEach(function(element) {
 						var randomLink = links[Math.floor(Math.random() * links.length)];
