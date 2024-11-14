@@ -108,7 +108,7 @@ giscus:
     repo: 
     repo_id: 
     category: Announcements
-    category_id: 
+    category_id: 0
     mapping: title
     strict: 1
     reactions-enabled: 1
