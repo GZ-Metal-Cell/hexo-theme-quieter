@@ -327,6 +327,12 @@ gitalk:
 
 ​	可从 [主页 | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/) 获得更多帮助和配置文档。
 
+- [Quieter 主题配置 | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter 主题配置/)
+- [Quieter 文章写作 | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/2024/11/13/Quieter 文章写作/)
+- [Quieter 文章配置 | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter 文章配置/)
+- [Quieter 相册页面 | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter 相册页面/)
+- [Quieter 主题配置 | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter 主题配置/)
+
 # LICENSE
 
 ​	MIT
