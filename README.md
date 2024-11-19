@@ -249,7 +249,7 @@ toc: true
 
 ### 相册页
 
-​	具体的配置见帮助文档：[Quieter 相册页面 | Hexo-Theme-Quiter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter 相册页面/)
+​	具体的配置见帮助文档：[Quieter 相册页面 | Hexo-Theme-Quiter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter%20相册页面/)
 
 ### 关于页
 
