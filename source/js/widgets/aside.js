@@ -1,13 +1,15 @@
 function initToc() {
     if (typeof headerString !== 'undefined') {
-        hbeToc();
-        createToc();
-        activeTocItem();
-        tocPercentage();
-        document.addEventListener('scroll', function (event) {
-            activeTocItem();
+        if (!hbeToc()) {
+            let filteredHeadings = getFilteredHeadings();
+            createToc(filteredHeadings);
+            activeTocItem(filteredHeadings);
             tocPercentage();
-        });
+            document.addEventListener('scroll', function (event) {
+                activeTocItem(filteredHeadings);
+                tocPercentage();
+            });
+        }
     }
 }
 
@@ -35,23 +37,31 @@ function showAside() {
 function hbeToc() {
     if ($('.hbe-content').length > 0) {
         $('.main-wrapper').addClass('hbe-toc');
+        return true
     } else {
         $('.main-wrapper').removeClass('hbe-toc');
+        return false
     }
 }
 
-function createToc() {
+function getFilteredHeadings() {
+    var headings = $('article').find(headerString);
+    var filteredHeadings = headings.filter(function () {
+        var heading = $(this);  // 当前的 heading 元素
+        // 判断是否有 <a> 标签，且该 <a> 标签具有 'headerlink' 类
+        return heading.find('a').length && heading.find('a').hasClass('headerlink');
+    });
+    return filteredHeadings
+}
+
+function createToc(filteredHeadings) {
     var tocList = [];
     var toc = $('<ol>').addClass('aside-bottom-toc-content');
-    var headings = $('article').find(headerString);
 
-    headings.each(function (index, heading) {
+    filteredHeadings.each(function (_, heading) {
         if (/^[0-9]/.test($(heading).attr('id'))) {
             $(heading).attr('id', '_' + $(heading).attr('id'));
         }
-        if ((!$(heading).find('a').length) || (!$(heading).find('a').hasClass('headerlink')))  // 标题里没有<a>，可能是用户自己创建的标题，跳过
-            return;
-
         var level = parseInt(heading.tagName.charAt(1));
 
         // 创建列表项和链接
@@ -105,38 +115,40 @@ function createToc() {
     $('.aside-bottom-toc-content').replaceWith(toc); // 将原来的目录替换为新的目录
 }
 
-
 function onShowAsideButton() {
     document.querySelector('.main-wrapper').classList.toggle('close-aside');
 
     var value = localStorage.getItem('aside-status');
     if (value === 'false' && typeof headerString !== 'undefined') {
-        activeTocItem();
-        activeSeriesItem();
+        initToc();
     }
     localStorage.setItem('aside-status', value === 'true' ? 'false' : 'true');
 }
 
-function getTopHeadingId() {
-    const headings = document.querySelector('article').querySelectorAll(headerString);
-    let topHeadingId = null;
-    let minDistanceFromTop = Infinity;
-    for (const heading of headings) {
-        const boundingRect = heading.getBoundingClientRect();
-        if (boundingRect.y < window.innerHeight) {
-            const distanceFromTop = Math.abs(boundingRect.y - 80);
-            if (distanceFromTop < minDistanceFromTop) {
-                minDistanceFromTop = distanceFromTop;
-                topHeadingId = heading.id;
+function getTopHeadingId(filteredHeadings) {
+    if (filteredHeadings) {
+        let topHeadingId = null;
+        let minDistanceFromTop = Infinity;
+
+        filteredHeadings.each(function (_, heading) {
+            const boundingRect = heading.getBoundingClientRect();
+            if (boundingRect.y < window.innerHeight) {
+                const distanceFromTop = Math.abs(boundingRect.y - 80);
+                if (distanceFromTop < minDistanceFromTop) {
+                    minDistanceFromTop = distanceFromTop;
+                    topHeadingId = heading.id;
+                }
             }
-        }
+        });
+        return topHeadingId;
+    } else {
+        return null;
     }
-    return topHeadingId;
 }
 
-function activeTocItem() {
+function activeTocItem(filteredHeadings) {
     const tocLinks = document.querySelectorAll('a.toc-link');
-    const topHeadingId = getTopHeadingId();
+    const topHeadingId = getTopHeadingId(filteredHeadings);
 
     tocLinks.forEach(link => {
         link.classList.remove('active');
@@ -162,7 +174,7 @@ function activeTocItem() {
             if (activeItem) {
                 if (tocCollapsed) {
                     let parent = link.parentNode;
-                    while (parent && ! parent.classList.contains('aside-bottom-toc-content')) {
+                    while (parent && !parent.classList.contains('aside-bottom-toc-content')) {
                         if (parent.classList && parent.classList.contains('toc-item')) {
                             parent.classList.add('active');
                         }
