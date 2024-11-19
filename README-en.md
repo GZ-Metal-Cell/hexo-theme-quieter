@@ -72,7 +72,7 @@ Multiple plugin adaptation optimization:
 
 # Quick Start
 
-You can directly download the empty template file from [here], or choose to install it manually:
+You can directly download the empty template file from [Hexo-Theme-Quieter/hexo-theme-quieter-tutorial: Quieter's sample template.](https://github.com/Hexo-Theme-Quieter/hexo-theme-quieter-tutorial), or choose to install it manually:
 
 ## Download the Theme
 
@@ -251,7 +251,7 @@ toc: true
 
 ### Gallery Page
 
-For specific configuration, see the help document: [Quieter Gallery Page | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter 相册页面/)
+For specific configuration, see the help document: [Quieter Gallery Page | Hexo-Theme-Quieter](https://hexo-theme-quieter.github.io/2024/11/14/Quieter%20相册页面/)
 
 ### About Page
 

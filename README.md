@@ -70,7 +70,7 @@
 
 # 快速开始
 
-​	可以直接通过 处下载得到空的模板文件，也可以选择手动安装：
+​	可以直接通过 [Hexo-Theme-Quieter/hexo-theme-quieter-tutorial: Quieter 主题的示例模板。](https://github.com/Hexo-Theme-Quieter/hexo-theme-quieter-tutorial) 处下载得到空的模板文件，也可以选择手动安装：
 
 ## 下载主题
 
@@ -80,7 +80,7 @@
 $ git clone https://github.com/GZ-Metal-Cell/hexo-theme-quieter.git themes/Quieter
 ```
 
-​	或**使用 `npm` 安装**（通过 npm 安装并不会在 themes 里生成主题文件夹，而是在 node_modules 里生成）：
+​	或**使用 `npm` 安装**（通过 npm 安装并不会在 `themes/` 里生成主题文件夹，而是在 `node_modules/` 里生成）：
 
 ```shell
 npm install hexo-theme-quieter
